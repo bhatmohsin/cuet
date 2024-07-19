@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Indian Colleges with Counselors | CUET Counselling Guide</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        :root {
+            --bg-color: #f9f9f9;
+            --text-color: #333;
+            --primary-color: #1a5f7a;
+            --secondary-color: #2c3e50;
+            --accent-color: #ffa500;
+            --section-bg: #fff;
+        }
+
+        .dark-theme {
+            --bg-color: #1a1a1a;
+            --text-color: #f4f4f4;
+            --primary-color: #3498db;
+            --secondary-color: #34495e;
+            --section-bg: #2c2c2c;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            margin: 0;
+            padding: 0;
+            background-color: var(--bg-color);
+            transition: all 0.3s ease;
+        }
+
+        header {
+            background-color: var(--primary-color);
+            color: #fff;
+            padding: 1rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        h1, h2, h3 {
+            margin: 0;
+        }
+
+        main {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 0 20px;
+        }
+
+        section {
+            background-color: var(--section-bg);
+            padding: 2rem;
+            margin-bottom: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        footer {
+            text-align: center;
+            padding: 1rem;
+            background-color: var(--secondary-color);
+            color: #fff;
+        }
+
+        .college-list {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        .college-list th, .college-list td {
+            border: 1px solid var(--text-color);
+            padding: 10px;
+            text-align: left;
+        }
+        .college-list th {
+            background-color: var(--primary-color);
+            color: #fff;
+        }
+        .college-list tr:nth-child(even) {
+            background-color: var(--section-bg);
+        }
+        .college-list tr:hover {
+            background-color: var(--accent-color);
+            color: #fff;
+        }
+        .search-box {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 1px solid var(--text-color);
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>CUET Counselling Guide</h1>
+    </header>
+
+    <main>
+        <section>
+            <h2>Indian Colleges with Available Counselors</h2>
+            <input type="text" id="collegeSearch" class="search-box" placeholder="Search for a college...">
+            <table class="college-list">
+                <thead>
+                    <tr>
+                        <th>College Name</th>
+                        <th>Available Counselors</th>
+                    </tr>
+                </thead>
+                <tbody id="collegeTableBody">
+                    <!-- College list will be populated here -->
+                </tbody>
+            </table>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 CUET Counselling Guide. All rights reserved.</p>
+    </footer>
+
+    <script>
+        const colleges = [
+            { name: "University of Delhi", counselors: 15 },
+            { name: "Jawaharlal Nehru University", counselors: 12 },
+            { name: "Banaras Hindu University", counselors: 10 },
+            { name: "Aligarh Muslim University", counselors: 8 },
+            { name: "Jamia Millia Islamia", counselors: 7 },
+            { name: "University of Hyderabad", counselors: 9 },
+            { name: "Jadavpur University", counselors: 11 },
+            { name: "Savitribai Phule Pune University", counselors: 6 },
+            { name: "Anna University", counselors: 13 },
+            { name: "University of Mumbai", counselors: 14 },
+            { name: "Calcutta University", counselors: 10 },
+            { name: "University of Madras", counselors: 8 },
+            { name: "Osmania University", counselors: 7 },
+            { name: "Panjab University", counselors: 9 },
+            { name: "Birla Institute of Technology and Science", counselors: 12 },
+            { name: "Indian Institute of Science", counselors: 15 },
+            { name: "Vellore Institute of Technology", counselors: 11 },
+            { name: "Manipal Academy of Higher Education", counselors: 10 },
+            { name: "Amity University", counselors: 13 },
+            { name: "Symbiosis International University", counselors: 9 },
+            { name: "Tata Institute of Social Sciences", counselors: 8 },
+            { name: "Pondicherry University", counselors: 6 },
+            { name: "Jamia Hamdard", counselors: 7 },
+            { name: "Shiv Nadar University", counselors: 10 },
+            { name: "Ashoka University", counselors: 11 },
+            { name: "O.P. Jindal Global University", counselors: 9 },
+            { name: "BITS Pilani", counselors: 14 },
+            { name: "SRM Institute of Science and Technology", counselors: 12 },
+            { name: "Christ University", counselors: 8 },
+            { name: "Narsee Monjee Institute of Management Studies", counselors: 10 },
+            { name: "Lovely Professional University", counselors: 11 },
+            { name: "Chandigarh University", counselors: 9 },
+            { name: "Presidency University", counselors: 7 },
+            { name: "Banaras Hindu University", counselors: 13 },
+            { name: "Visva-Bharati University", counselors: 8 },
+            { name: "Guru Nanak Dev University", counselors: 6 },
+            { name: "University of Kerala", counselors: 9 },
+            { name: "Bharathiar University", counselors: 7 },
+            { name: "North Eastern Hill University", counselors: 5 },
+            { name: "Cochin University of Science and Technology", counselors: 8 }
+        ];
+
+        function populateCollegeList() {
+            const tableBody = document.getElementById('collegeTableBody');
+            tableBody.innerHTML = '';
+            colleges.forEach(college => {
+                const row = document.createElement('tr');
+                row.innerHTML = `
+                    <td><a href="counselor-profiles.html?college=${encodeURIComponent(college.name)}">${college.name}</a></td>
+                    <td>${college.counselors}</td>
+                `;
+                tableBody.appendChild(row);
+            });
+        }
+
+        function searchColleges() {
+            const input = document.getElementById('collegeSearch');
+            const filter = input.value.toUpperCase();
+            const tableBody = document.getElementById('collegeTableBody');
+            const rows = tableBody.getElementsByTagName('tr');
+
+            for (let i = 0; i < rows.length; i++) {
+                const collegeNameColumn = rows[i].getElementsByTagName('td')[0];
+                if (collegeNameColumn) {
+                    const collegeName = collegeNameColumn.textContent || collegeNameColumn.innerText;
+                    if (collegeName.toUpperCase().indexOf(filter) > -1) {
+                        rows[i].style.display = '';
+                    } else {
+                        rows[i].style.display = 'none';
+                    }
+                }
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            populateCollegeList();
+            document.getElementById('collegeSearch').addEventListener('keyup', searchColleges);
+        });
+    </script>
+</body>
+</html>
