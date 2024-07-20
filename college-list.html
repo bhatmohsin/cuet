@@ -175,7 +175,7 @@
             colleges.forEach(college => {
                 const row = document.createElement('tr');
                 row.innerHTML = `
-                    <td><a href="counselor-profiles.html?college=${encodeURIComponent(college.name)}">${college.name}</a></td>
+                    <td><a href="councellorlist.html?college=${encodeURIComponent(college.name)}">${college.name}</a></td>
                     <td>${college.counselors}</td>
                 `;
                 tableBody.appendChild(row);
