@@ -90,6 +90,24 @@
         .counselor-card h3 {
             margin-top: 0;
         }
+        .counselor-details {
+            display: none;
+            margin-top: 10px;
+        }
+        .book-call-btn {
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+        .rating-container {
+            margin-top: 10px;
+        }
+        .rating-container label {
+            margin-right: 5px;
+        }
     </style>
 </head>
 <body>
@@ -150,7 +168,22 @@
                         <h3>${counselor.name}</h3>
                         <p><strong>Specialization:</strong> ${counselor.specialization}</p>
                         <p><strong>Experience:</strong> ${counselor.experience}</p>
+                        <button class="book-call-btn">Book a Call</button>
+                        <div class="counselor-details">
+                            <p>Description: Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                            <div class="rating-container">
+                                <label for="rating1">Rate:</label>
+                                <input type="radio" id="rating1" name="rating" value="1">
+                                <label for="rating2">2</label>
+                                <input type="radio" id="rating2" name="rating" value="2">
+                                <!-- Add more rating options as needed -->
+                            </div>
+                        </div>
                     `;
+                    card.addEventListener('click', function() {
+                        const details = this.querySelector('.counselor-details');
+                        details.style.display = details.style.display === 'none' ? 'block' : 'none';
+                    });
                     grid.appendChild(card);
                 }
             } else {
