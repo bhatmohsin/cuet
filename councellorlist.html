@@ -121,13 +121,13 @@
         }
 
         function generateRandomCounselor(index) {
-            const names = ["Aarav Sharma", "Aditi Patel", "Arjun Singh", "Diya Gupta", "Ishaan Reddy", "Kavya Mehta", "Rahul Kumar", "Riya Joshi", "Vikram Malhotra", "Zara Khan"];
+            const names = ["Bhat Mohsin", "Aqib Bashir", "Sachchaita Hangloo", "Diya Gupta", "Ishaan Reddy", "Kavya Mehta", "Rahul Kumar", "Riya Joshi", "Vikram Malhotra", "Zara Khan"];
             const specializations = ["Career Guidance", "College Selection", "Admission Process", "Scholarship Advice", "Course Selection"];
             
             return {
                 name: names[index % names.length],
                 specialization: specializations[Math.floor(Math.random() * specializations.length)],
-                experience: Math.floor(Math.random() * 10) + 5 + " years",
+                experience: Math.floor(Math.random() * 2) + 2 + " years",
                 image: `https://xsgames.co/randomusers/avatar.php?g=pixel&random=${index}`
             };
         }
